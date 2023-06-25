@@ -25,13 +25,12 @@ export const StatsList = styled.ul`
   width: 100%;
 `;
 
-
 export const StatsItem = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width:100%;
+  width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: #${props => props.bgColor};
