@@ -1,28 +1,35 @@
 import PropTypes from 'prop-types';
+import {
+  TransBody,
+  TransColumn,
+  TransHeader,
+  TransItem,
+  TransTable,
+} from './TransactionHistory.styled';
 
 export const TransactionHistory = ({ items }) => {
   return (
-    <table class="transaction-history">
+    <TransTable>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+          <TransHeader>Type</TransHeader>
+          <TransHeader>Amount</TransHeader>
+          <TransHeader>Currency</TransHeader>
         </tr>
       </thead>
 
-      <tbody>
+      <TransBody>
         {items.map(({ id, type, amount, currency }) => {
           return (
-            <tr key={id}>
-              <td>{type}</td>
-              <td>{amount}</td>
-              <td>{currency}</td>
-            </tr>
+            <TransItem key={id}>
+              <TransColumn>{type}</TransColumn>
+              <TransColumn>{amount}</TransColumn>
+              <TransColumn>{currency}</TransColumn>
+            </TransItem>
           );
         })}
-      </tbody>
-    </table>
+      </TransBody>
+    </TransTable>
   );
 };
 
@@ -31,7 +38,7 @@ TransactionHistory.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       type: PropTypes.string.isRequired,
-      amount: PropTypes.number.isRequired,
+      amount: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
     })
   ).isRequired,
